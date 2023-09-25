@@ -3,7 +3,7 @@ from pico2d import *
 TUK_WIDTH, TUK_HEIGHT = 1280, 1024
 open_canvas(TUK_WIDTH, TUK_HEIGHT)
 tuk_ground = load_image('TUK_GROUND.png')
-character = load_image('animation_sheet.png')
+character = load_image('MapleStory_JrBalrog.png')
 
 running = True
 
@@ -43,10 +43,18 @@ dir2 = 0
 while running:
     clear_canvas()
     tuk_ground.draw(TUK_WIDTH // 2 , TUK_HEIGHT // 2)
-    character.clip_draw(frame * 100,100,100,100,x,y)
+    if frame < 3:
+        character.clip_draw(frame * 180,200,180,200,x,y)
+    elif frame < 5:
+        character.clip_draw(540 + (frame-3) * 250, 200, 250, 200, x, y)
+    elif frame < 6:
+        character.clip_draw(0, 0, 500, 200, x, y)
+    elif frame < 7:
+        character.clip_draw(550 ,200,230,200,x,y)
+
     update_canvas()
     handle_events()
-    frame = (frame + 1) % 8
+    frame = (frame + 1) % 7
     if x > 0 and x < TUK_WIDTH:
         x += dir1 * 5
     elif x == 0:
@@ -61,7 +69,7 @@ while running:
     elif y >= TUK_HEIGHT:
         y = TUK_HEIGHT - 5
 
-    delay(0.05)
+    delay(0.1)
 
 
 close_canvas()
