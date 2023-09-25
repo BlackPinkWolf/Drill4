@@ -56,18 +56,18 @@ while running:
     handle_events()
     frame = (frame + 1) % 7
     if x > 0 and x < TUK_WIDTH:
-        x += dir1 * 5
+        x += dir1 * 10
     elif x == 0:
-        x = 5
+        x = 10
     elif x == TUK_WIDTH:
-        x = TUK_WIDTH - 5
+        x = TUK_WIDTH - 10
 
     if y > 0 and y < TUK_HEIGHT:
-        y += dir2 * 5
+        y += dir2 * 10
     elif y <= 0:
-        y = 5
+        y = 10
     elif y >= TUK_HEIGHT:
-        y = TUK_HEIGHT - 5
+        y = TUK_HEIGHT - 10
 
     delay(0.1)
 
