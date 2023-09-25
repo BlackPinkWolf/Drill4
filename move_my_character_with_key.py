@@ -47,8 +47,20 @@ while running:
     update_canvas()
     handle_events()
     frame = (frame + 1) % 8
-    x += dir1 * 5
-    y += dir2 * 5
+    if x > 0 and x < TUK_WIDTH:
+        x += dir1 * 5
+    elif x == 0:
+        x = 5
+    elif x == TUK_WIDTH:
+        x = TUK_WIDTH - 5
+
+    if y > 0 and y < TUK_HEIGHT:
+        y += dir2 * 5
+    elif y <= 0:
+        y = 5
+    elif y >= TUK_HEIGHT:
+        y = TUK_HEIGHT - 5
+
     delay(0.05)
 
 
